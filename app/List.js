@@ -37,13 +37,16 @@ class AppLogin extends Component {
 
     render(){
         return (
+            <View style={{marginTop: 70}}>
+            <Text>
+            You can purchase from these merchants:
+            </Text>
             <FlatList
                 snapToAlignment={'center'} 
             contentContainerStyle={{
                 margin: 20,
-                marginTop: 45
             }}
-            data={[{key: 'm1', pan: 0}, {key: 'm2', pan: 2}].concat(this.props.loginresponse.merchants)}
+            data={[{key: 'm1', pan: 0}, {key: 'm2', pan: 2}].concat(this.props.merchants)}
             renderItem={({item}) =>
                 <View style={{
                     flex: 1,
@@ -52,15 +55,17 @@ class AppLogin extends Component {
                         justifyContent: 'space-between',
                         height: 100,
                 }}>
-                <Text>Merchant: {item.key}</Text>
-                <Button title="PAY NOW" onPress={
-                    () => {
-                        this._onSelect(item);
-                    }
-                }/>
+                <Text style={{fontSize: 18}}>{item.key}</Text>
                 </View>
             }
             />
+                <Button style={{alignSelf: "flex-end"}} 
+        title="PAY NOW" onPress={
+                    () => {
+                        this._onSelect(this.props.pan);
+                    }
+                }/>
+            </View>
         );
     }
 }

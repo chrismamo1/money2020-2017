@@ -39,7 +39,7 @@ class MyClass extends Component {
                 justifyContent: "center",
             }}>
             <QRCode
-                      value={this.props.item.pan}
+                      value={this.props.pan}
                       size={250}
                       bgColor='black'
                       fgColor='white'/>

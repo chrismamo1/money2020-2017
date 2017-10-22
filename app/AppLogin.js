@@ -13,6 +13,9 @@ import getMerchantList from './getMerchantList';
 
 const {width} = Dimensions.get('window');
 
+function getPAN() {
+    return "123456789";
+}
 
 class AppLogin extends Component {
 
@@ -38,11 +41,12 @@ class AppLogin extends Component {
             <Button title="Login" onPress={
                 () => {
                 let merchants = getMerchantList();
+                let pan = getPAN();
     this.props.navigator.push({
         screen: "comprpay.List",
         title: "ComprPay",
         backButtonHidden: true,
-        passProps: { merchants }
+        passProps: { merchants, pan }
     });
                 }
             }/>
