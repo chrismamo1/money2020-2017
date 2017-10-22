@@ -1,6 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import { NativeModules } from 'react-native';
+const { RNHce } = NativeModules;
+
 export default class App extends React.Component {
   render() {
     return (
