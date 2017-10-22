@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+    FlatList,
     View,
     ScrollView,
     Dimensions,
@@ -25,28 +26,38 @@ class AppLogin extends Component {
         console.log(props);
     }
 
-    _onLogin() {
+    _onSelect(item) {
         this.props.navigator.push({
-            screen: "comprpay.List",
+            screen: "comprpay.Pay",
+            passProps: item
         });
     }
 
     render(){
         return (
-            <ScrollView contentContainerStyle={{
-                height: "100%",
-                flex: 1,
-                justifyContent: "center",
-            }}>
-            <TextInput placeholder="compensator's ID"/>
-            <TextInput placeholder="your ID"/>
-            <TextInput placeholder="your password"/>
-            <Button title="Login" onPress={
-                () => {
-                this._onLogin();
-                }
-            }/>
-            </ScrollView>
+            <FlatList
+                snapToAlignment={'center'} 
+            contentContainerStyle={{
+                marginTop: 40
+            }}
+            data={[{key: 'm1', pan: 0}, {key: 'm2', pan: 2}]}
+            renderItem={({item}) =>
+                <View style={{
+                    flex: 1,
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        height: 100,
+                }}>
+                <Text>Merchant: {item.key}</Text>
+                <Button title="PAY NOW" onPress={
+                    () => {
+                        this._onSelect(item);
+                    }
+                }/>
+                </View>
+            }
+            />
         );
     }
 }

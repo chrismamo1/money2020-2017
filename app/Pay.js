@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import QRCode from 'react-native-qrcode';
 import {
+    Alert,
     View,
     ScrollView,
     Dimensions,
@@ -13,7 +15,7 @@ import {
 const {width} = Dimensions.get('window');
 
 
-class AppLogin extends Component {
+class MyClass extends Component {
 
     static navigatorStyle = {
         drawUnderNavBar: true,
@@ -22,13 +24,11 @@ class AppLogin extends Component {
 
     constructor(props){
         super(props);
-        console.log(props);
     }
 
-    _onLogin() {
-        this.props.navigator.push({
-            screen: "comprpay.List",
-        });
+    _onPay() {
+        Alert.alert("Error!");
+        this.props.navigator.pop()
     }
 
     render(){
@@ -38,12 +38,19 @@ class AppLogin extends Component {
                 flex: 1,
                 justifyContent: "center",
             }}>
-            <TextInput placeholder="compensator's ID"/>
-            <TextInput placeholder="your ID"/>
-            <TextInput placeholder="your password"/>
-            <Button title="Login" onPress={
+            <QRCode
+                      value={"$2020"}
+                      size={200}
+                      bgColor='black'
+                      fgColor='white'/>
+                  </View>
+            <Text style={{
+                fontSize: 15,
+                margin: 20
+            }}>Please press the button to use your funds.</Text>
+            <Button title="Pay" onPress={
                 () => {
-                this._onLogin();
+                this._onPay();
                 }
             }/>
             </ScrollView>
@@ -67,4 +74,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default AppLogin;
+export default MyClass;

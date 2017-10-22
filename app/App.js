@@ -4,18 +4,16 @@ import { Navigation } from 'react-native-navigation';
 
 import AppLogin from './AppLogin.js'
 import Drawer from './Drawer.js'
+import List from './List.js'
+import Pay from './Pay.js'
 
 import { NativeModules } from 'react-native';
 const { RNHce } = NativeModules;
 
 Navigation.registerComponent('comprpay.Drawer', () => Drawer);
 Navigation.registerComponent('comprpay.Login', () => AppLogin);
-/*
 Navigation.registerComponent('comprpay.List', () => List);
-Navigation.registerComponent('comprpay.Nfc', () => Nfc);
-*/
-Navigation.registerComponent('comprpay.List', () => AppLogin);
-Navigation.registerComponent('comprpay.Nfc', () => AppLogin);
+Navigation.registerComponent('comprpay.Pay', () => Pay);
 
 
 Navigation.startSingleScreenApp({
@@ -28,10 +26,11 @@ Navigation.startSingleScreenApp({
     passProps: {},
     animationType: Platform.OS === 'ios' ? 'slide-down' : 'slide-right',
     appStyle: {
-        navBarButtonColor: '#ffffff',
-        navBarTextColor: '#ffffff',
-        navigationBarColor: '#003a66',
-        statusBarColor: '#003a66',
+        navBarButtonColor: '#000',
+        navBarTextColor: '#000',
+        navigationBarColor: '#fff',
+        statusBarColor: '#fff',
+        statusBarTextColorScheme: 'dark'
     },
     drawer: {
         left: {

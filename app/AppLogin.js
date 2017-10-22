@@ -22,12 +22,16 @@ class AppLogin extends Component {
 
     constructor(props){
         super(props);
-        console.log(props);
     }
 
     _onLogin() {
+        // https://onzepay.localtunnel.me/login
+        // user=X&password=X
+        // 403
         this.props.navigator.push({
             screen: "comprpay.List",
+            title: "ComprPay",
+            backButtonHidden: true,
         });
     }
 
