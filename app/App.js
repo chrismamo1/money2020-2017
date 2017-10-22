@@ -2,20 +2,20 @@ import React from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 
-import Login from './Login.js'
+import AppLogin from './AppLogin.js'
 import Drawer from './Drawer.js'
 
 import { NativeModules } from 'react-native';
 const { RNHce } = NativeModules;
 
 Navigation.registerComponent('comprpay.Drawer', () => Drawer);
-Navigation.registerComponent('comprpay.Login', () => Login);
+Navigation.registerComponent('comprpay.Login', () => AppLogin);
 /*
 Navigation.registerComponent('comprpay.List', () => List);
 Navigation.registerComponent('comprpay.Nfc', () => Nfc);
 */
-Navigation.registerComponent('comprpay.List', () => Login);
-Navigation.registerComponent('comprpay.Nfc', () => Login);
+Navigation.registerComponent('comprpay.List', () => AppLogin);
+Navigation.registerComponent('comprpay.Nfc', () => AppLogin);
 
 
 Navigation.startSingleScreenApp({
@@ -26,16 +26,12 @@ Navigation.startSingleScreenApp({
         navigatorButtons: {} // override the nav buttons for the screen, see "Adding buttons to the navigator" below (optional)
     },
     passProps: {},
-    animationType: Platform.OS === 'ios' ? 'slide-down' : 'fade',
+    animationType: Platform.OS === 'ios' ? 'slide-down' : 'slide-right',
     appStyle: {
-        tabBarBackgroundColor: '#003a66',
         navBarButtonColor: '#ffffff',
-        tabBarButtonColor: '#ffffff',
         navBarTextColor: '#ffffff',
-        tabBarSelectedButtonColor: '#ff505c',
         navigationBarColor: '#003a66',
-        navBarBackgroundColor: '#003a66',
-        statusBarColor: '#002b4c',
+        statusBarColor: '#003a66',
     },
     drawer: {
         left: {
