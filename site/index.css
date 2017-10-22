@@ -1,0 +1,30 @@
+.ons-main-menu {
+  position: fixed;
+  top: 0;
+  left: 0; }
+
+.pure-button {
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 1;
+  border-radius: 500px;
+  height: 250px;
+  width: 250px; }
+
+body {
+  font-size: 2em; }
+
+.content-stuff {
+  padding-top: 200px;
+  display: flex; }
+
+.vpad {
+  flex: 50; }
+
+span.rainbow *:nth-child(2n) {
+  color: #1FFF1F; }
+
+span.rainbow *:nth-child(2n + 1) {
+  color: #1F1FFF; }
+
+/*# sourceMappingURL=index.css.map */
