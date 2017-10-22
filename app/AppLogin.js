@@ -37,12 +37,12 @@ class AppLogin extends Component {
                 flex: 1,
                 justifyContent: "center",
             }}>
-            <TextInput placeholder="your name" selectTextOnFocus={true} onChangeText={(text)=>{this.props.username=text;}}/>
+            <TextInput placeholder="your name" selectTextOnFocus={true} onChangeText={(text)=>{this.state.u=text;}}/>
             <TextInput placeholder="your password" secureTextEntry={true}/>
             <Button title="Login" onPress={
                 () => {
                 let merchants = getMerchantList();
-                let pan = getPAN(this.props.username);
+                let pan = getPAN(this.state.u);
     this.props.navigator.push({
         screen: "comprpay.List",
         title: "ComprPay",
