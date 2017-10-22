@@ -1,3 +1,5 @@
+*.png
+
 .vscode
 yarn.lock
 package-lock.json

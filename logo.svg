@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="102.72231mm"
-   height="155.97678mm"
-   viewBox="0 0 363.9767 552.67361"
+   width="156mm"
+   height="156mm"
+   viewBox="0 0 552.75591 552.7559"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -28,9 +28,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="-75.858344"
-     inkscape:cy="262.39452"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="-560.68317"
+     inkscape:cy="314.34034"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -59,17 +59,17 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-118.66617,-253.79751)">
+     transform="translate(-118.66617,-253.71522)">
     <rect
        y="277.52841"
-       x="433.02338"
+       x="525.9574"
        height="481.81046"
        width="48.953308"
        id="rect3342"
        style="fill:#1c70ff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.33240628px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     <path
        style="fill:#ffe6d5;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 433.28482,256.36911 0,547.49557 -312.41149,-83.71041 -0.20632,-384.36903 z"
+       d="m 526.21885,256.36911 0,547.49557 -312.41149,-83.71041 -0.20632,-384.36903 z"
        id="path3336"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccc" />
@@ -78,18 +78,18 @@
        id="rect3338"
        width="28.571428"
        height="465"
-       x="433.57144"
+       x="526.50549"
        y="294.50507" />
     <rect
        style="fill:#81ef5c;fill-opacity:1;stroke:#000000"
        id="rect3340"
        width="10.714286"
        height="187.14285"
-       x="433.57144"
+       x="526.50549"
        y="557.36218" />
     <rect
        y="503.14081"
-       x="462.20721"
+       x="555.14124"
        height="241.2999"
        width="10.585612"
        id="rect3344"
@@ -97,13 +97,13 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:319.53887939px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="149.27188"
+       x="242.20592"
        y="635.54681"
        id="text4156"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4158"
-         x="149.27188"
+         x="242.20592"
          y="635.54681"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Bitstream Vera Sans';-inkscape-font-specification:'Bitstream Vera Sans'">O</tspan></text>
   </g>
