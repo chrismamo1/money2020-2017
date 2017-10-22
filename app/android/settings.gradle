@@ -1,0 +1,5 @@
+rootProject.name = 'ComprPay'
+include ':../../Hce'
+project(':../../Hce').projectDir = new File(rootProject.projectDir, '../../Hce/android')
+
+include ':app'
