@@ -28,27 +28,37 @@ class AppLogin extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {u: ""};
     }
 
     render(){
         return (
             <ScrollView contentContainerStyle={{
                 height: "100%",
-                flex: 1,
-                justifyContent: "center",
+                    flex: 1,
+                    justifyContent: "center",
             }}>
-            <TextInput placeholder="your name" selectTextOnFocus={true} onChangeText={(text)=>{this.state.u=text;}}/>
+            <TextInput 
+            placeholder="your name" 
+            selectTextOnFocus={true} 
+            onChangeText={(text)=>{this.setState(
+                (previousState) => {
+                    return {u: text};
+                })
+            }}/>
             <TextInput placeholder="your password" secureTextEntry={true}/>
             <Button title="Login" onPress={
                 () => {
-                let merchants = getMerchantList();
-                let pan = getPAN(this.state.u);
-    this.props.navigator.push({
-        screen: "comprpay.List",
-        title: "ComprPay",
-        backButtonHidden: true,
-        passProps: { merchants, pan }
-    });
+                    let merchants = getMerchantList();
+                    getPAN(this.state.u).then(pan => {
+                        Alert.alert(pan);
+                        this.props.navigator.push({
+                            screen: "comprpay.List",
+                            title: "ComprPay",
+                            backButtonHidden: true,
+                            passProps: { merchants, pan }
+                        })
+                    });
                 }
             }/>
             </ScrollView>
