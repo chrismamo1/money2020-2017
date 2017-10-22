@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+    Alert,
     View,
     ScrollView,
     Dimensions,
@@ -13,8 +14,9 @@ import getMerchantList from './getMerchantList';
 
 const {width} = Dimensions.get('window');
 
-function getPAN() {
-    return "123456789";
+function getPAN(username) {
+    let url = 'https://onzepay.localtunnel.me/getUsablePan?user=' + username;
+    return fetch(url).then((response) => response).catch((error) => { console.log("" + error); });
 }
 
 class AppLogin extends Component {
@@ -24,7 +26,7 @@ class AppLogin extends Component {
 
     };
 
-    constructor(props){
+    constructor(props) {
         super(props);
     }
 
@@ -35,13 +37,12 @@ class AppLogin extends Component {
                 flex: 1,
                 justifyContent: "center",
             }}>
-            <TextInput placeholder="compensator's ID"/>
-            <TextInput placeholder="your ID"/>
-            <TextInput placeholder="your password"/>
+            <TextInput placeholder="your name" selectTextOnFocus={true} onChangeText={(text)=>{this.props.username=text;}}/>
+            <TextInput placeholder="your password" secureTextEntry={true}/>
             <Button title="Login" onPress={
                 () => {
                 let merchants = getMerchantList();
-                let pan = getPAN();
+                let pan = getPAN(this.props.username);
     this.props.navigator.push({
         screen: "comprpay.List",
         title: "ComprPay",

@@ -46,7 +46,7 @@ class AppLogin extends Component {
             contentContainerStyle={{
                 margin: 20,
             }}
-            data={[{key: 'm1', pan: 0}, {key: 'm2', pan: 2}].concat(this.props.merchants)}
+            data={this.props.merchants}
             renderItem={({item}) =>
                 <View style={{
                     flex: 1,
