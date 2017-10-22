@@ -26,10 +26,12 @@ class AppLogin extends Component {
         console.log(props);
     }
 
+    // TODO: refrehs button
+
     _onSelect(item) {
         this.props.navigator.push({
             screen: "comprpay.Pay",
-            passProps: item
+            passProps: { item }
         });
     }
 
@@ -38,9 +40,10 @@ class AppLogin extends Component {
             <FlatList
                 snapToAlignment={'center'} 
             contentContainerStyle={{
-                marginTop: 40
+                margin: 20,
+                marginTop: 45
             }}
-            data={[{key: 'm1', pan: 0}, {key: 'm2', pan: 2}]}
+            data={[{key: 'm1', pan: 0}, {key: 'm2', pan: 2}].concat(this.props.loginresponse.merchants)}
             renderItem={({item}) =>
                 <View style={{
                     flex: 1,

@@ -9,6 +9,7 @@ import {
     TextInput,
     PixelRatio,
 } from 'react-native';
+import getMerchantList from './getMerchantList';
 
 const {width} = Dimensions.get('window');
 
@@ -24,17 +25,6 @@ class AppLogin extends Component {
         super(props);
     }
 
-    _onLogin() {
-        // https://onzepay.localtunnel.me/login
-        // user=X&password=X
-        // 403
-        this.props.navigator.push({
-            screen: "comprpay.List",
-            title: "ComprPay",
-            backButtonHidden: true,
-        });
-    }
-
     render(){
         return (
             <ScrollView contentContainerStyle={{
@@ -47,7 +37,13 @@ class AppLogin extends Component {
             <TextInput placeholder="your password"/>
             <Button title="Login" onPress={
                 () => {
-                this._onLogin();
+                let merchants = getMerchantList();
+    this.props.navigator.push({
+        screen: "comprpay.List",
+        title: "ComprPay",
+        backButtonHidden: true,
+        passProps: { merchants }
+    });
                 }
             }/>
             </ScrollView>

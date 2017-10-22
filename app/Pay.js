@@ -27,7 +27,6 @@ class MyClass extends Component {
     }
 
     _onPay() {
-        Alert.alert("Error!");
         this.props.navigator.pop()
     }
 
@@ -36,19 +35,20 @@ class MyClass extends Component {
             <ScrollView contentContainerStyle={{
                 height: "100%",
                 flex: 1,
+                alignItems: "center",
                 justifyContent: "center",
             }}>
             <QRCode
-                      value={"$2020"}
-                      size={200}
+                      value={this.props.item.pan}
+                      size={250}
                       bgColor='black'
                       fgColor='white'/>
-                  </View>
             <Text style={{
                 fontSize: 15,
                 margin: 20
-            }}>Please press the button to use your funds.</Text>
-            <Button title="Pay" onPress={
+            }}>Use this QR code to spend your funds
+            </Text>
+            <Button title="Done Paying" onPress={
                 () => {
                 this._onPay();
                 }
