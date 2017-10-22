@@ -3,6 +3,12 @@
 console.log('Loading function');
 
 const doc = require('dynamodb-doc');
+const modo_pkg = require('modo');
+const modo = new modo_pkg.Modo({
+        api_url: "api.sbx.gomo.do",
+        base: "/api_v2",
+});
+
 
 var authentication = new MasterCardAPI.OAuth(consumerKey, keyStorePath, keyAlias, keyPassword);
 MasterCardAPI.init({
@@ -164,3 +170,34 @@ var getHosts = function(user, cb) {
                 }
         })
 }
+
+var createChargeCard = function(user, merchant, amount, hostCard, cb) {
+        // User: {'name': string, 'modo_id': string}
+        // Merchant: {'name': string, 'modo_id': string}
+        // Amount: int (in pennies!)
+        // Host card: {'pan': string, 'exp_month': int, 'exp_year': int, 'zip': int, 'cvv': int}
+        // Open host card -- TODO only if we don't have it on file already!
+        let host_card_vault_id = modo.openCard(hostCard.pan, hostCard.exp_month, hostCard.exp_year, hostCard.zip, hostCard.cvv).response_data[0].vault_id;
+        let gc_params = {
+                'user_id': user.modo_id,
+                'amount': amount,
+                'description': 'mint OPEN_CARD to GIFT_CARD',
+                'inputs': [
+                        {
+                                'account_type': 'Card',
+                                'instrument_id': host_card_vault_id,
+                                'max_amount': amount
+                        }
+                ],
+                'outputs': [
+                        {
+                                'account_type': 'GiftCard',
+                                'qualifier': '{"merchant_id": "' + merchant.modo_id + '"}',
+                                'max_amount': amount
+                        }
+                ],
+                'auto_operate': true
+        };
+        let gift_card_vault_id = modo.query('/coin/mint', gc_params, null).response_data[0].vault_id;
+}
+
