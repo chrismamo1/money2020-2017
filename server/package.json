@@ -11,6 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "dynamodb-doc": "^1.0.0",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "modo-sdk": "^1.0.9",
   }
 }
